@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+  "name": "Bookmark Cleaner",
+  "version": "0.0.0",
+  "description": "Clean your bookmarks.",
+  "icons": {
+    "16": "icons/16.png",
+    "128": "icons/128.png"
+  },
+  "homepage_url": "https://github.com/AndersDJohnson/chrome-bookmark-cleaner",
+  "app": {
+    "launch": {
+      "local_path": "index.html"
+    }
+  },
+  "permissions": [
+    "bookmarks"
+  ]
+}
