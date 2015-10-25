@@ -8,6 +8,7 @@
     "128": "icons/128.png"
   },
   "homepage_url": "https://github.com/AndersDJohnson/chrome-bookmark-cleaner",
+  "author": "Anders D. Johnson",
   "permissions": [
     "bookmarks",
     "tabs",
