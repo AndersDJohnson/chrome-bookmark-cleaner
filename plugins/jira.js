@@ -21,16 +21,17 @@ bookmarkCleaner.plugin('jira', {
       console.log('No URL: ' + url);
       return Promise.resolve();
     }
-    var regex = /\/([A-Z]+\-[0-9]+)(?:\?.*)?$/;
+    var regex = /(.*)\/browse\/([A-Z]+\-[0-9]+)(?:\?.*)?$/;
     var match = url.match(regex);
     if (! match) {
       console.log('No match: ' + match + ' for URL: ' + url);
       return Promise.resolve();
     }
-    var key = match[1];
+    var jiraBaseUrl = match[1];
+    var key = match[2];
 
     return new Promise(function (resolve, reject) {
-      that.getIssue(key).then(
+      that.getIssue(jiraBaseUrl, key).then(
         function (issue) {
           that.handleIssue({
             archiveFolder: archive,
@@ -83,9 +84,9 @@ bookmarkCleaner.plugin('jira', {
       }
     });
   },
-  getIssue: function (key, callback) {
+  getIssue: function (jiraBaseUrl, key, callback) {
     return new Promise(function (resolve, reject) {
-      var url = 'https://jira.jostens.com/jira/rest/api/latest/issue/' + key;
+      var url = jiraBaseUrl + '/rest/api/latest/issue/' + key;
 
       console.log('Starting request to ' + url);
 
