@@ -49,7 +49,17 @@ bookmarkCleaner.plugin('jira', {
       );
     });
   },
+  /**
+   * TODO: Expose settings for statuses.
+   */
+  statuses: [
+    'deployed',
+    'cancelled',
+    'resolved',
+    'closed'
+  ],
   handleIssue: function(params) {
+    var that = this;
     return new Promise(function (resolve, reject) {
       params = params || {};
       var archive = params.archiveFolder;
@@ -60,11 +70,11 @@ bookmarkCleaner.plugin('jira', {
       console.log('handling ', arguments);
       var key = issue.key;
       var status = issue.fields.status ? issue.fields.status.name : null;
-      var resolution = issue.fields.resolution ? issue.fields.resolution.name : null;
-      console.log(key, 'resolution', resolution);
       console.log(key, 'status', status);
+      // var resolution = issue.fields.resolution ? issue.fields.resolution.name : null;
+      // console.log(key, 'resolution', resolution);
 
-      if (status === 'Deployed' || status === 'Cancelled' || status === 'Resolved') {
+      if (status && that.statuses.indexOf(status.toLowerCase()) > -1) {
         console.log('moving... dryRun=' + dryRun, bookmark, archive);
         if (dryRun) {
           resolve();
