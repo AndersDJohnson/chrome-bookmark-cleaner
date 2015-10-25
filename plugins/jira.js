@@ -1,3 +1,5 @@
+var $ = require('jquery');
+
 bookmarkCleaner.plugin('jira', {
   search: function () {
     return 'jira/browse';

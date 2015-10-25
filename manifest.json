@@ -19,15 +19,17 @@
     }
   },
   "background": {
-    "scripts": ["background.js"]
+    "scripts": [
+      "build/background.js"
+    ]
   },
   "content_scripts": [
     {
-      "matches": ["*://*.jira.jostens.com/*"],
+      "matches": [
+        "*://*.jira.jostens.com/*"
+      ],
       "js": [
-        "bower_components/jquery/dist/jquery.js",
-        "content.js",
-        "plugins/jira.js"
+        "build/content.js"
       ]
     }
   ]

@@ -142,3 +142,5 @@
   }
 
 })();
+
+require('./plugins/jira');

@@ -1,0 +1,33 @@
+{
+  "name": "chrome-bookmark-cleaner",
+  "version": "0.0.0",
+  "description": "Clean your bookmarks.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-content": "browserify --debug content.js --outfile build/content.js",
+    "watch-content": "watchify --debug content.js --outfile build/content.js",
+    "build-bg": "browserify --debug background.js --outfile build/background.js",
+    "watch-bg": "watchify --debug background.js --outfile build/background.js",
+    "build": "npm-run-all build-content build-bg",
+    "watch": "npm-run-all --parallel watch-content watch-bg"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndersDJohnson/chrome-bookmark-cleaner.git"
+  },
+  "author": "Anders D. Johnson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AndersDJohnson/chrome-bookmark-cleaner/issues"
+  },
+  "homepage": "https://github.com/AndersDJohnson/chrome-bookmark-cleaner#readme",
+  "dependencies": {
+    "jquery": "^2.1.4"
+  },
+  "devDependencies": {
+    "browserify": "^11.2.0",
+    "npm-run-all": "^1.2.12",
+    "watchify": "^3.4.0"
+  }
+}
