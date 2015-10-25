@@ -27,7 +27,7 @@
   "content_scripts": [
     {
       "matches": [
-        "*://*.jira.jostens.com/*"
+        "*://*/*"
       ],
       "js": [
         "build/content.js"
