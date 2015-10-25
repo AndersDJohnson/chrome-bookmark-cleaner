@@ -5,12 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-content": "browserify --debug content.js --outfile build/content.js",
-    "watch-content": "watchify --debug content.js --outfile build/content.js",
-    "build-bg": "browserify --debug background.js --outfile build/background.js",
-    "watch-bg": "watchify --debug background.js --outfile build/background.js",
-    "build": "npm-run-all build-content build-bg",
-    "watch": "npm-run-all --parallel watch-content watch-bg"
+    "build:content": "browserify --debug content.js --outfile build/content.js",
+    "watch:content": "watchify --debug content.js --outfile build/content.js",
+    "build:bg": "browserify --debug background.js --outfile build/background.js",
+    "watch:bg": "watchify --debug background.js --outfile build/background.js",
+    "build": "npm-run-all build:**:*",
+    "watch": "npm-run-all --parallel watch:**:*"
   },
   "repository": {
     "type": "git",
