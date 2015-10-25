@@ -1,3 +1,5 @@
+var settle = require('promise-settle');
+
 (function () {
   var injected = function () {
     window.bookmarkCleaner = function (options) {
@@ -93,7 +95,7 @@
           });
 
           // TODO: Consider Promise.settle, e.g. https://www.npmjs.com/package/promise-settle
-          Promise.all(promises).then(function () {
+          settle(promises).then(function () {
             console.log('Done with plugin "' + plugin.name + '".');
           }, function (err) {
             console.error(err);
