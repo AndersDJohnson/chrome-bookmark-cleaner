@@ -8,12 +8,27 @@
     "128": "icons/128.png"
   },
   "homepage_url": "https://github.com/AndersDJohnson/chrome-bookmark-cleaner",
+  "permissions": [
+    "bookmarks",
+    "tabs",
+    "*://*.jira.jostens.com/*"
+  ],
   "app": {
     "launch": {
       "local_path": "index.html"
     }
   },
-  "permissions": [
-    "bookmarks"
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.jira.jostens.com/*"],
+      "js": [
+        "bower_components/jquery/dist/jquery.js",
+        "content.js",
+        "plugins/jira.js"
+      ]
+    }
   ]
 }
