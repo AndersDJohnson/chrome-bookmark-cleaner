@@ -28,6 +28,7 @@ bookmarkCleaner.plugin('jira', {
       return Promise.resolve();
     }
     var jiraBaseUrl = match[1];
+    jiraBaseUrl = jiraBaseUrl.replace(/^https?:/, '');
     var key = match[2];
 
     return new Promise(function (resolve, reject) {
