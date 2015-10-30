@@ -15,10 +15,18 @@ var settle = require('promise-settle');
   var innerHTML = ';(' + injected.toString() + ')();';
   var script = document.createElement("script");
   script.innerHTML = innerHTML;
-  document.body.appendChild(script);
+
+  var head = document.querySelector('head');
+  if (head) {
+    head.appendChild(script);
+  }
+  else {
+    document.body.appendChild(script);
+  }
 })();
 
 (function () {
+
   window.bookmarkCleaner = bookmarkCleaner;
 
   document.addEventListener('bookmarkCleaner', function (e) {
