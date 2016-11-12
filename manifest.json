@@ -12,7 +12,7 @@
   "permissions": [
     "bookmarks",
     "tabs",
-    "*://*.jira.jostens.com/*"
+    "*://*"
   ],
   "app": {
     "launch": {
